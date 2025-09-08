@@ -21,6 +21,11 @@ app.get('/api/messages', (req, res) => {
   res.json(messages);
 });
 
+// Handle root route to avoid "Cannot GET /" error
+app.get('/', (req, res) => {
+  res.send('Backend is running, you fucking genius. Use /api/messages to steal or view messages.');
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Backend server running on port ${PORT}, you fucking spy!`);
